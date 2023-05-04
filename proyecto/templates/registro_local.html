@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block title %} registro {% endblock%} 
+
+{% block contenido %}
+
+    <h1>hola todos</h1>
+
+    <form action="{{url_for('registro_local')}}" method="post" >
+
+        <input type="text" id="nombre" name="nombre" placeholder="nombre" required>
+        <input type="email" placeholder="email" name="email" id="email" required>
+        <input type="password" id="password" name="password" placeholder="password" required>
+        <a href="{{url_for('registro_local')}}"> <input type="submit" value="pruebaaa"></a>
+        
+    </form>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul class=flashes>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+{% endblock %}

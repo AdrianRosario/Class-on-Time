@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %} Editar {% endblock%} 
+
+{% block contenido %}
+{% for datos in impresiondatos %}
+<form action="/update/{{datos.3}}" method="post"  enctype="multipart/form-data">
+
+    <input type="text" id="nombre_tareas" name="nombre_tareas" placeholder="nombre de la tareas" value="{{datos[1]}}" required>
+    <textarea type="text" name="descripcion" id="descripcion" placeholder="Descripcion"  required >{{datos[2]}}</textarea>
+    <a href="/update/{{datos.3}}"> <input type="submit" value="actualizar"></a>
+    
+</form>
+{% endfor %}
+{% endblock %}

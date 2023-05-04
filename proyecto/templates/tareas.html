@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas</title>
+</head>
+<body>
+    
+    <button  class="button-cerrar" onclick="window.location = 'http://localhost:3000/logout'" type="submit">cerrar session</button>
+
+    <h1> Tareas proyecto</h1>
+    {% for data in impresion %}
+
+    <h1>{{data[1]}}</h1>
+
+    {% endfor %}
+
+    <form action="{{url_for('tareas')}}" method="post" enctype="multipart/form-data">
+
+        <input type="text" id="nombre_tareas" name="nombre_tareas" placeholder="nombre de la tareas" required>
+        <textarea type="text" name="descripcion" id="descripcion" placeholder="Descripcion"  required></textarea>
+        <select  id="tipos" name="tipos" required >
+            <option value="">Selecione un Tipo</option>
+            <option value="Mis Cosas" required>Mis Cosas</option>
+            <option value="Trabajo" required>Trabajo</option>
+            <option value="Educacion" required>Educacion</option>
+            <a href="{{url_for('tareas')}}"> <input type="submit" value="pruebaaa"></a>
+        
+    </form>
+    <br>
+        <br>
+            <br>
+
+                <table>
+                        <tr>
+                            <td>Nombre de la tareas</td>
+                            <td>Descripcion</td>
+                            <td>Tipo</td>
+                            <td>Editar</td>
+                            <td>Eliminar</td>
+                        </tr>
+                        
+                    {% for datos in impresiondatos %}
+                        <tr>
+                            <td>{{datos[0]}}</td>
+                            <td>{{datos[1]}}</td>
+                            <td>{{datos[2]}}</td>
+                            <td>{{datos[4]}}</td>
+                            <td><a href="edit/{{datos.3}}">Editar</a></td>
+                            <td><a href="/delete/{{datos.3}}">Eliminar</a></td>
+                            
+
+                        </tr>
+                    
+                    {% endfor %}
+                            
+                </table>
+    
+                
+                  
+                    
+                
+                
+<a href='/logout'><button>Logout</button></a>
+
+<a href="{{url_for('cambiar_password')}}">cambiar contrasena</a>
+           
+
+</body>
+</html>

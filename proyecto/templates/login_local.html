@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %} login {% endblock%} 
+
+{% block contenido %}
+
+    <h1>Login</h1>
+
+    <form action="{{url_for('login_local')}}" method="post" >
+
+        <input type="email" placeholder="email" name="email" id="email" required>
+        <input type="password" id="password" name="password" placeholder="password" required>
+        <a href="{{url_for('login_local')}}"> <input type="submit" value="pruebaaa"></a>
+        
+    </form>
+<a href="{{ url_for('logingoogle')}}"><button>Login</button></a>
+<br>
+    <br>
+      <br>
+
+          <a href="{{url_for('recuperar_contraseña')}}"><button>olvide mi contraseña</button></a>
+    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+      
+    {% endif %}
+  {% endwith %}
+
+{% endblock %}

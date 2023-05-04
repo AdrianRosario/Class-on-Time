@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %} vista {% endblock%} 
+
+{% block contenido %}
+
+<br>
+<br>
+    <br>
+
+        <table>
+                <tr>
+                    <td>Nombre de la tareas</td>
+                    <td>Descripcion</td>
+                    <td>Editar</td>
+                    <td>Eliminar</td>
+                </tr>
+                
+            {% for datos in impresiondatos %}
+                <tr>
+                    <td>{{datos[0]}}</td>
+                    <td>{{datos[1]}}</td>
+                    <td>{{datos[2]}}</td>
+                    <td><a href="{{url_for('delete',id=datos[0])}}">Eliminar</a></td>
+
+                </tr>
+            
+            {% endfor %}
+                    
+        </table>
+{% endblock %}
+

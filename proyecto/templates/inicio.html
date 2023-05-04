@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block title %} Inicio {% endblock%} 
+
+{% block contenido %}
+
+    <h1>Inicio</h1>
+
+
+    <br>
+        <br>
+
+        <table>
+            <tr>
+                <td>id</td>
+                <td>nombre</td>
+                <td>email</td>
+                <td>password</td>
+                <td>Editar</td>
+                <td>Eliminar</td>
+            </tr>
+            
+        {% for mostrar in mostrar %}
+            <tr>
+                <td>{{mostrar[0]}}</td>
+                <td>{{mostrar[1]}}</td>
+                <td>{{mostrar[2]}}</td>
+                <td>{{mostrar[3]}}</td>
+                <td><a href="/delete/{{mostrar.0}}">Eliminar</a></td>
+
+            </tr>
+        
+        {% endfor %}
+                
+    </table>
+{% endblock %}
